@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package myservice;
+
+import "github.com/rickychandra/goboil/common/pb/common.proto";
+
+service MyService {
+    rpc Hello(HelloRequest) returns (HelloResponse) {}
+    rpc HelloError(HelloErrorRequest) returns (common.Empty) {}
+}
+
+message HelloRequest {
+    string name = 1;
+    int32 age = 2;
+}
+
+message HelloResponse {
+    bool ok = 1;
+}
+
+message HelloErrorRequest {
+    string name = 1;
+}
